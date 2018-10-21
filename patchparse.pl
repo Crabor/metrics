@@ -4,7 +4,7 @@ $db=Understand::open("/home/cyl/Desktop/udb/bash32.udb" );
 my %bugdata;
 open(OUT,'>>', '/home/cyl/Desktop//bugs/bugs.csv');
 open(log_out,'>>','/home/cyl/Desktop/log_out.txt');
-$path="/home/cyl/Desktop/patch/"; 
+$path="/home/cyl/Downloads/patchcourse/patch/"; 
 my $num=0;
 while($num<57)
 {
@@ -94,7 +94,7 @@ foreach $func1 ($db1->ents("Function"))
             if ($func1->contents() ne $func2->contents())
             { 
 
-		print log_out "funcname",",",$func1->parent()->relname(),"\n",$func1->contents(),"\n--------------\n",$func2->contents(),"\n------------\n";
+		print log_out "$funcname",",",$func1->parent()->relname(),"\n",$func1->contents(),"\n--------------\n",$func2->contents(),"\n------------\n";
                 $bugdata{$func1->parent()->relname() . "->" . $func1->name()}+=1;
             }
         }
